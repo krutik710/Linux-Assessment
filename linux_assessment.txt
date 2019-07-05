@@ -1,0 +1,14 @@
+# This command lists the lines in the first part followed by a count of the specific word on the next line
+1. grep "Totality" sample.txt && grep -r "Totality" sample.txt | wc -l
+
+# This command finds all files having same extension (here .txt) in the current working directory 
+2. find . -type f -name "*.txt"
+
+# This command navigates into all subdirectories having start string as aws and executes pwd command on them
+3. for i in aws*; do (cd "$i" && pwd); done
+
+# Replaces specific word (total) with another word (bottle) from test_word.txt
+4. sed -i 's/total/bottle/g' test_word.txt
+
+# Retrives arn from s3 bucket from s3_info.txt 
+5. jq '.[] | .[0] | .["s3"] | .["bucket"].arn?' s3_info.txt
